@@ -82,7 +82,7 @@ CREATE TABLE movies (
 
 CREATE TABLE top_cast (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    movie TEXT,
+    movie TEXT REFERENCES movies(title),
     actor TEXT,
     character TEXT
 );
