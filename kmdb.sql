@@ -67,12 +67,10 @@
 .headers off
 
 -- Drop existing tables, so you'll start fresh each time this script is run.
--- TODO!
 DROP TABLE IF EXISTS movies;
 DROP TABLE IF EXISTS top_cast;
 
 -- Create new tables, according to your domain model
--- TODO!
 
 CREATE TABLE movies (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -89,9 +87,9 @@ CREATE TABLE top_cast (
     character TEXT
 );
 
+
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
--- TODO!
 
 INSERT INTO movies
     (title, year, rating, director)
@@ -100,14 +98,32 @@ VALUES
     ("The Dark Knight", "2008", "PG-13", "Christopher Nolan"),
     ("The Dark Knight Rises", "2012", "PG-13", "Christopher Nolan");
 
+INSERT INTO top_cast
+    (movie, actor, character)
+VALUES
+    ("Batman Begins", "Christian Bale", "Bruce Wayne"),
+    ("Batman Begins", "Michael Caine", "Alfred"),
+    ("Batman Begins", "Liam Neeson", "Ra's Al Ghul"),
+    ("Batman Begins", "Katie Holmes", "Rachel Dawes"),
+    ("Batman Begins", "Gary Oldman", "Commisioner Gordon"),
+    ("The Dark Knight", "Christian Bale", "Bruce Wayne"),
+    ("The Dark Knight", "Heath Ledger", "Joker"),
+    ("The Dark Knight", "Aaron Eckhart", "Harvey Dent"),
+    ("The Dark Knight", "Michael Caine", "Alfred"),
+    ("The Dark Knight", "Maggie Gyllenhaal", "Rachel Dawes"),
+    ("The Dark Knight Rises", "Christian Bale", "Bruce Wayne"),
+    ("The Dark Knight Rises", "Gary Oldman", "Commisioner Gordon"),
+    ("The Dark Knight Rises", "Tom Hardy", "Bane"),
+    ("The Dark Knight Rises", "Joseh Gordon-Levitt", "John Blake"),
+    ("The Dark Knight Rises", "Anne Hathaway", "Selina Kyle");
+
 -- Prints a header for the movies output
 .print "Movies"
 .print "======"
 .print ""
 
 -- The SQL statement for the movies output
--- TODO!
-SELECT * FROM movies;
+SELECT title, year, rating, director FROM movies;
 
 -- Prints a header for the cast output
 .print ""
@@ -115,6 +131,5 @@ SELECT * FROM movies;
 .print "========"
 .print ""
 
-
 -- The SQL statement for the cast output
--- TODO!
+SELECT movie, actor, character FROM top_cast;
